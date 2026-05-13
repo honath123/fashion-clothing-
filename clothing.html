@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion & Clothing - Premium Store</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5fcff;
+    color:#222;
+}
+
+/* Navbar */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,191,255,0.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+header h1{
+    color:white;
+    font-size:28px;
+    font-weight:700;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#002b5b;
+}
+
+/* Buttons */
+.btn{
+    background:white;
+    color:#00bfff;
+    padding:10px 22px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#002b5b;
+    color:white;
+}
+
+/* Hero Section */
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h2{
+    font-size:60px;
+    font-weight:700;
+    text-transform:uppercase;
+    animation:fadeDown 1s ease;
+}
+
+.hero-content p{
+    font-size:22px;
+    margin-top:15px;
+    animation:fadeUp 1s ease;
+}
+
+.hero-btn{
+    margin-top:25px;
+    background:#00bfff;
+    color:white;
+    padding:14px 35px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.4s;
+}
+
+.hero-btn:hover{
+    background:white;
+    color:#00bfff;
+    transform:scale(1.05);
+}
+
+/* Sections */
+.section{
+    padding:80px 60px;
+}
+
+.section h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#00bfff;
+}
+
+/* Categories */
+.categories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.category-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.category-card:hover{
+    transform:translateY(-10px);
+}
+
+.category-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.category-card h3{
+    text-align:center;
+    padding:15px;
+    color:#00bfff;
+}
+
+/* Search */
+.search-box{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:50%;
+    padding:12px;
+    border-radius:30px;
+    border:1px solid #ddd;
+}
+
+/* Products */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.product-card{
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    text-align:center;
+    transition:0.4s;
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+}
+
+.product-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.price{
+    color:#00bfff;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:gray;
+}
+
+/* Cart Section */
+#cart{
+    background:#e6f9ff;
+}
+
+.cart-box{
+    text-align:center;
+    font-size:20px;
+}
+
+/* Footer */
+footer{
+    background:#00bfff;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* Dark Mode */
+.dark-mode{
+    background:#0d1b2a;
+    color:white;
+}
+
+.dark-mode .product-card,
+.dark-mode .category-card{
+    background:#1b263b;
+    color:white;
+}
+
+/* Animations */
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<header>
+    <h1>Fashion & Clothing</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#cart">Cart</a>
+        <a href="#contact">Contact</a>
+        <button class="btn" onclick="toggleDarkMode()">Mode</button>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>Elevate Your Style With Luxury Fashion</h2>
+        <p>Discover Trendy Outfits, Premium Collections & Exclusive Styles</p>
+        <button class="hero-btn">Shop Now</button>
+    </div>
+</section>
+
+<!-- Categories -->
+<section class="section" id="categories">
+    <h2>Shop By Categories</h2>
+
+    <div class="categories">
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f">
+            <h3>Men's Wear</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c">
+            <h3>Women's Wear</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1503919005314-30d93d07d823">
+            <h3>Kids Wear</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49">
+            <h3>Accessories</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Products -->
+<section class="section" id="products">
+    <h2>Trending Products</h2>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" 
+        placeholder="Search products..."
+        onkeyup="searchProducts()">
+    </div>
+
+    <div class="products" id="product-list">
+
+        <div class="product-card" data-name="hoodie">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+            <h3>Premium Hoodie</h3>
+            <p>
+                <span class="price">₹1999</span>
+                <span class="old-price">₹2999</span>
+            </p>
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-name="dress">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c">
+            <h3>Elegant Dress</h3>
+            <p>
+                <span class="price">₹2499</span>
+                <span class="old-price">₹3499</span>
+            </p>
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-name="watch">
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49">
+            <h3>Luxury Watch</h3>
+            <p>
+                <span class="price">₹3999</span>
+                <span class="old-price">₹4999</span>
+            </p>
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<!-- Cart -->
+<section class="section" id="cart">
+    <h2>Your Cart</h2>
+    <div class="cart-box">
+        <p>Items in Cart: <span id="cart-count">0</span></p>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">
+        Email: support@fashionclothing.com <br>
+        Phone: +91 9876543210
+    </p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Fashion & Clothing | Premium Sky Blue Store</p>
+</footer>
+
+<script>
+let cartCount = 0;
+
+function addToCart(){
+    cartCount++;
+    document.getElementById("cart-count").innerText = cartCount;
+    alert("Product added to cart!");
+}
+
+function searchProducts(){
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let products = document.querySelectorAll(".product-card");
+
+    products.forEach(product => {
+        let name = product.getAttribute("data-name");
+
+        if(name.includes(input)){
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+}
+
+function toggleDarkMode(){
+    document.body.classList.toggle("dark-mode");
+}
+</script>
+
+</body>
+</html> 
